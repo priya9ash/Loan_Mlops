@@ -16,7 +16,7 @@ def prediction():
     loan_req=request.get_json()
     loan_req=DataFrame(loan_req,index=[0])
     loan_req['Gender']=loan_req["Gender"].map({"Male":0,"Female":1})
-    loan_req["Married"]=loan_req['Married'].map({"No";0,"Yes":1})
+    loan_req["Married"]=loan_req['Married'].map({"No":0,"Yes":1})
     loan_req=loan_req[["Gender",'Married',"ApplicantIncome","LoanAmount","Credit_History"]]
     prediction=model.predict(loan_req)
     if prediction==0:
